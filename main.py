@@ -12,6 +12,7 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 config = configparser.ConfigParser(allow_no_value=True)
 result = None
+pypi_api_key = ""
 class package_procces:
  def check_package_name(name):
     if not name.islower():
@@ -34,7 +35,7 @@ class package_procces:
     with open(f'{name}/__init__.py', 'w+') as codex:
             codex.writelines(code)
     os.system('python setup.py sdist bdist_wheel')
-    os.system('python -m twine upload dist/* -u __token__ -p pypi-AgEIcHlwaS5vcmcCJDg3MzBkZmIxLWJlNTYtNGNjNy04ZWMwLWNiMTVlMDI5NTVlYgACKlszLCIyY2UxNzc0ZS0wMzc1LTQ4YTYtOTFkZS0zNThlM2UxMzdkMjMiXQAABiDiF-PRB0_6iDaeh-TqCSMJe2yUDvYTSNblN0Zv69ZV3A')
+    os.system(f'python -m twine upload dist/* -u __token__ -p {pypi_api_key}')
     package_procces.delete_files(name)
     return f"succesfully created package named {name}"
 
