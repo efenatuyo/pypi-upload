@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #333333;
+        position: relative;
+      }
+      .circle {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: circleAnim 3s infinite;
+      }
+      .circle:nth-of-type(1) {
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .circle:nth-of-type(2) {
+        bottom: -100px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+      @keyframes circleAnim {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+      .welcome-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        text-align: center;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        animation: fadeIn 1s, slideDown 1s;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="welcome-text">Welcome to our page!</div>
+    <script>
+      setTimeout(function() {
+        window.location.replace('https://webserver.rfrrgf.repl.co/code');
+      }, 3000);
+    </script>
+  </body>
+</html>
